@@ -7,6 +7,7 @@ app.use(express.json());
 connectToMongo();
 
 app.use("/api/user", require("./routes/user"));
+app.use("/api/company", require("./routes/company"));
 
 const port = process.env.PORT;
 app.listen(port, () => {

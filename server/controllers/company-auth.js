@@ -3,43 +3,38 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 // schema imports
-const User = require("./../models/User");
+const Company = require("../models/Company");
 
 const JWTSecret = process.env.JWT_SECRET;
 
 module.exports.signUp = async (req, res) => {
   try {
-    let user = await User.findOne({ aadhar: req.body.aadhar });
-    if (user) {
+    let company = await Company.findOne({ gstin: req.body.gstin });
+    if (company) {
       res
         .status(400)
-        .json({ success: false, message: "Please enter a unique aadhar" });
+        .json({ success: false, message: "Please enter a unique GSTIN" });
     }
     const salt = await bcrypt.genSalt(10);
     const secPass = await bcrypt.hash(req.body.password, salt);
-    user = await User.create({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      aadhar: req.body.aadhar,
-      email: req.body.email,
+    company = await Company.create({
+      name: req.body.name,
+      head: req.body.head,
       mobile: req.body.mobile,
-      age: req.body.age,
-      place: req.body.place,
-      disabilitytype: req.body.disabilitytype,
-      disability: req.body.disability,
-      severity: req.body.severity,
-      qualifications: req.body.qualifications,
+      email: req.body.email,
+      website: req.body.website,
+      gstin: req.body.gstin,
       password: secPass,
     });
     const data = {
-      user: {
-        id: user.id,
+      company: {
+        id: company.id,
       },
     };
     const authToken = jwt.sign(data, JWTSecret);
     res.json({
       success: true,
-      message: "User registered successfully",
+      message: "Company registered successfully",
       authToken,
     });
   } catch (err) {
@@ -50,15 +45,15 @@ module.exports.signUp = async (req, res) => {
 module.exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({ email });
-    if (!user) {
+    const company = await Company.findOne({ email });
+    if (!company) {
       res.status(400).json({
         success: false,
         error: "Please try to login with correct credentials",
       });
     }
 
-    const passwordCompare = await bcrypt.compare(password, user.password);
+    const passwordCompare = await bcrypt.compare(password, company.password);
 
     if (!passwordCompare) {
       res.status(400).json({
@@ -68,8 +63,8 @@ module.exports.login = async (req, res) => {
     }
 
     const payload = {
-      user: {
-        id: user.id,
+      company: {
+        id: company.id,
       },
     };
     const authToken = jwt.sign(payload, JWTSecret);
@@ -79,11 +74,11 @@ module.exports.login = async (req, res) => {
   }
 };
 
-module.exports.getUser = async (req, res) => {
+module.exports.getCompany = async (req, res) => {
   try {
-    let userID = req.user.id;
-    const user = await User.findById(userID).select("-password");
-    res.json({ success: true, user });
+    let companyID = req.company.id;
+    const company = await Company.findById(companyID).select("-password");
+    res.json({ success: true, company });
   } catch (err) {
     console.error(err.message);
   }
