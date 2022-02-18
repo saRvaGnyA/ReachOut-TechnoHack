@@ -6,7 +6,11 @@ const { fetchCompany, validate } = require("../middleware/company-validator");
 const { jobCreationValidationRules } = require("../middleware/job-validator");
 
 // controller imports
-const { fetchAllJobs, addJob } = require("../controllers/controller-jobs");
+const {
+  fetchAllJobs,
+  addJob,
+  fetchAllCompanyJobs,
+} = require("../controllers/controller-jobs");
 
 const router = express.Router();
 
@@ -21,5 +25,8 @@ router.post(
   validate,
   addJob
 );
+
+// Route 3: Get all the company-specific jobs using: GET "/api/jobs/fetchallcompanyjobs". Login required
+router.get("/fetchallcompanyjobs", fetchCompany, fetchAllCompanyJobs);
 
 module.exports = router;

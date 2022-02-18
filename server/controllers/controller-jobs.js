@@ -29,3 +29,12 @@ module.exports.addJob = async (req, res) => {
     console.error(err);
   }
 };
+
+module.exports.fetchAllCompanyJobs = async (req, res) => {
+  try {
+    const jobs = await Job.find({ company: req.company.id });
+    res.json({ success: true, jobs });
+  } catch (err) {
+    console.error(err);
+  }
+};
