@@ -1,8 +1,8 @@
 import React from "react";
 import { Steps, StepsProvider, useSteps } from "react-step-builder";
-import Step1 from "./Step1";
-import Step2 from "./Step2";
-import Step3 from "./Step3";
+import Personal from "./Personal";
+import Disability from "./Disability";
+import JobSpecifics from "./Job_Specifics";
 import Step4 from "./Step4";
 
 function Register(){
@@ -20,21 +20,21 @@ function RegisterSteps() {
     return (
         <div className="Register">
             <Steps>
-                <Step1 />
-                {/*Full Name
+                <Personal />
+                {/*First Name
                     Last Name
                     Aadhar
                     Email
                     Mobile 
                     Age
                     preferred place of work*/}
-                <Step2 />
+                <Disability />
                 {/*Mental/Physical
                     Disability
                     Severity(Slider)
                     Job preference - Part-Time/Free-Time/FreeLance
                     */}
-                <Step3 />
+                <JobSpecifics />
                 {/*Job Type - Part-Time Job / Candidate for testing(Checkbox)
                     Qualifications - less than 10 / 10+2 / Degree 
                     Sector

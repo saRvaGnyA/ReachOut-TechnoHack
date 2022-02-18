@@ -2,7 +2,7 @@ import React from "react";
 import { useSteps } from "react-step-builder";
 
 
-function Step3() {
+function JobSpecifics() {
     const { prev, next} = useSteps();
     return (
         <div className="p-5">
@@ -26,7 +26,7 @@ function Step3() {
                                 <line x1="23" y1="11" x2="17" y2="11"></line>
                             </svg>
                         </div>
-                        <div className="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-teal-600">Account</div>
+                        <div className="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-teal-600">Disability</div>
                     </div>
                     <div className="flex-auto border-t-2 transition duration-500 ease-in-out border-teal-600"></div>
                     <div className="flex items-center text-white relative">
@@ -36,7 +36,7 @@ function Step3() {
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
                         </div>
-                        <div className="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-teal-600">Message</div>
+                        <div className="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-teal-600">Job Specifics</div>
                     </div>
                     <div className="flex-auto border-t-2 transition duration-500 ease-in-out border-gray-300"></div>
                     <div className="flex items-center text-gray-500 relative">
@@ -47,33 +47,59 @@ function Step3() {
                                 <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
                             </svg>
                         </div>
-                        <div className="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-gray-500">Confirm</div>
+                        <div className="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-gray-500">Jobs</div>
                     </div>
                 </div>
             </div>
             <div className="mt-8 p-4">
                 <div>
-                    <div className="font-bold text-gray-600 text-xs leading-8 uppercase h-6 mx-2 mt-3">Full Name</div>
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full flex-1 mx-2 svelte-1l8159u">
+                            <div className="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"><label for="Disability Type">Job Type</label></div>
                             <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                                <input placeholder="First Name" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
+                                <select id="Job Type" className="p-1 px-2 appearance-none outline-none w-full text-gray-800">
+                                    <option value="Full-Time">Full-Time</option>
+                                    <option value="Product Testing">Product Testing</option>
+                                </select>
+                            </div>
                         </div>
                         <div className="w-full flex-1 mx-2 svelte-1l8159u">
+                            <div className="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"><label for="Qualifications">Qualifications</label></div>
                             <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                                <input placeholder="Last Name" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
+                                <select id="Qualifications" className="p-1 px-2 appearance-none outline-none w-full text-gray-800">
+                                    <option value="Less than 10">Less than 10</option>
+                                    <option value="10th Pass">10th Pass</option>
+                                    <option value="10+2 pass">10+2 pass</option>
+                                    <option value="Degree">Degree</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full mx-2 flex-1 svelte-1l8159u">
-                            <div className="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Username</div>
+                            <div className="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"><label for="Sector">Sector</label></div>
                             <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                                <input placeholder="Just a hint.." className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
+                            <select id="Sector" className="p-1 px-2 appearance-none outline-none w-full text-gray-800">
+                                    <option value="Arts, Entertainment, Recreation">Arts, Entertainment, Recreation</option>
+                                    <option value="Clothing and Accessories">Clothing and Accessories</option>
+                                    <option value="Data Sciece, Processing, Management">Data Sciece, Processing, Management</option>
+                                    <option value="Education and Health Services">Education and Health Services</option>
+                                    <option value="Electronics and Electrical Hardware">Electronics and Electrical Hardware</option>
+                                    <option value="Finance and Insurance">Finance and Insurance</option>
+                                    <option value="Food and Beverage">Food and Beverage</option>
+                                    <option value="IT and Tech">IT and Tech</option>
+                                    <option value="Real Estate">Real Estate</option>
+                                    <option value="Repair and Maintainence">Repair and Maintainence</option>
+                                </select> </div>
                         </div>
                         <div className="w-full mx-2 flex-1 svelte-1l8159u">
-                            <div className="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"> Your Email</div>
+                            <div className="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"><label for="Job Preference">Job Preference</label></div>
                             <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                                <input placeholder="jhon@doe.com" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
+                                <select id="Job Preference" className="p-1 px-2 appearance-none outline-none w-full text-gray-800">
+                                    <option value="Full-Time">Full-Time</option>
+                                    <option value="Part-Time">Part-Time</option>
+                                    <option value="Freelance">Freelance</option>
+                                </select> </div>
                         </div>
                     </div>
                 </div>
@@ -90,7 +116,7 @@ function Step3() {
                 bg-teal-600 
                 text-teal-100 
                 border duration-200 ease-in-out 
-                border-teal-600 transition" onClick={next}>Next</button>
+                border-teal-600 transition" onClick={next}>Show Jobs!</button>
                         {/* <button className="text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
                 hover:bg-teal-200  
                 bg-teal-100 
@@ -104,4 +130,4 @@ function Step3() {
     );
 }
 
-export default Step3;
+export default JobSpecifics;
