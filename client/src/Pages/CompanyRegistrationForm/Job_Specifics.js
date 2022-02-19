@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSteps } from "react-step-builder";
+import { useNavigate } from "react-router-dom";
 
 function JobSpecifics() {
   const { prev, next } = useSteps();
+  const [jobDetails, setJobDetails] = useState({});
+  const host = "https://reachout-server.herokuapp.com";
+
+  let history = useNavigate();
+
+  const onChange = (e) => {
+    setJobDetails({ ...jobDetails, [e.target.name]: e.target.value });
+  };
+
+  const submitHandler = async () => {
+    const url = `${host}/api/jobs/addjob`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("auth-token"),
+      },
+      body: JSON.stringify({ ...jobDetails }),
+    });
+    const job = await response.json();
+    console.log(job);
+      history("/hires", { replace: true });
+  };
+
   return (
     <div className="p-5 bg-gray-900 mt-5">
       <div className="mx-4 p-4">
@@ -83,11 +108,14 @@ function JobSpecifics() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Job Title">Job Title</label>
+                <label htmlFor="title">Job Title</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Job Title"
+                  id="title"
+                  name="title"
+                  value={jobDetails.title}
+                  onChange={onChange}
                   placeholder="Assistant Manager"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -96,11 +124,14 @@ function JobSpecifics() {
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
                 {" "}
-                <label for="Salary">Salary</label>
+                <label htmlFor="salary">Salary</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Salary"
+                  id="salary"
+                  name="salary"
+                  value={jobDetails.salary}
+                  onChange={onChange}
                   placeholder="50,000(in Rs.)"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -110,7 +141,7 @@ function JobSpecifics() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Disability Type">Job Type</label>
+                <label htmlFor="Disability Type">Job Type</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
@@ -124,11 +155,14 @@ function JobSpecifics() {
             </div>
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Qualifications">Qualifications</label>
+                <label htmlFor="qualification">Qualifications</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
-                  id="Qualifications"
+                  id="qualification"
+                  name="qualification"
+                  value={jobDetails.qualification}
+                  onChange={onChange}
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 >
                   <option value="Less than 10">Less than 10</option>
@@ -142,11 +176,14 @@ function JobSpecifics() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Sector">Sector</label>
+                <label htmlFor="sector">Sector</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
-                  id="Sector"
+                  id="sector"
+                  name="sector"
+                  value={jobDetails.sector}
+                  onChange={onChange}
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 >
                   <option value="Arts, Entertainment, Recreation">
@@ -173,16 +210,20 @@ function JobSpecifics() {
                   <option value="Repair and Maintainence">
                     Repair and Maintainence
                   </option>
+                  <option value="All">All</option>
                 </select>{" "}
               </div>
             </div>
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Location">Location</label>
+                <label htmlFor="location">Location</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Location"
+                  id="location"
+                  name="location"
+                  value={jobDetails.location}
+                  onChange={onChange}
                   placeholder="Mumbai"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />
@@ -192,11 +233,14 @@ function JobSpecifics() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Disability Type">Disability Type</label>
+                <label htmlFor="disability">Disability Type</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
-                  id="Disability Type"
+                  id="disability"
+                  name="disability"
+                  value={jobDetails.disability}
+                  onChange={onChange}
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 >
                   <option value="Physical">Physical</option>
@@ -206,11 +250,11 @@ function JobSpecifics() {
             </div>
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Disability">Disability</label>
+                <label htmlFor="DisabilityType">Disability</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
-                  id="Disability"
+                  id="DisabilityType"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 >
                   <option value="Blind">Blind</option>
@@ -243,9 +287,9 @@ function JobSpecifics() {
                 text-teal-100 
                 border duration-200 ease-in-out 
                 border-teal-600 transition"
-              onClick={next}
+              onClick={submitHandler}
             >
-              Show Jobs!
+              Post Job!
             </button>
             {/* <button className="text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
                 hover:bg-teal-200  

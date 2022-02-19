@@ -1,37 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSteps } from "react-step-builder";
 
 function Step4() {
   const { prev } = useSteps();
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const host = "https://reachout-server.herokuapp.com";
 
-  const data = {
-    people: [
-      {
-        name: "ABC",
-        disability: "Blind",
-        qualificaions: "Degree",
-        jobType: "Freelance",
+  const getData = async () => {
+    const url = `${host}/api/jobs/fetchallcompanyjobs`;
+    const jobs = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("auth-token"),
       },
-      {
-        name: "XYZ",
-        disability: "Blind",
-        qualificaions: "Degree",
-        jobType: "Freelance",
-      },
-      {
-        name: "PQR",
-        disability: "Blind",
-        qualificaions: "Degree",
-        jobType: "Freelance",
-      },
-      {
-        name: "LMN",
-        disability: "Blind",
-        qualificaions: "Degree",
-        jobType: "Freelance",
-      },
-    ]
-  }
+    });
+    const recd = await jobs.json();
+    setData(recd.jobs);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className="p-5 bg-gray-900 mt-5">
       <div className="mx-4 p-4">
@@ -116,48 +109,70 @@ function Step4() {
                 <table className="min-w-full text-center">
                   <thead className="border-b bg-gray-800">
                     <tr>
-                      <th scope="col" className="text-xl font-extrabold text-white py-4">
+                      <th
+                        scope="col"
+                        className="text-xl font-extrabold text-white py-4"
+                      >
                         Sr. No.
                       </th>
-                      <th scope="col" className="text-xl font-extrabold text-white px-6 py-4">
-                        Employee Name
+                      <th
+                        scope="col"
+                        className="text-xl font-extrabold text-white px-6 py-4"
+                      >
+                        Title
                       </th>
-                      <th scope="col" className="text-xl font-extrabold text-white px-6 py-4">
-                        Disability
+                      <th
+                        scope="col"
+                        className="text-xl font-extrabold text-white px-6 py-4"
+                      >
+                        Salary
                       </th>
-                      <th scope="col" className="text-xl font-extrabold text-white px-6 py-4">
-                        Qualifications
+                      <th
+                        scope="col"
+                        className="text-xl font-extrabold text-white px-6 py-4"
+                      >
+                        Location
                       </th>
-                      <th scope="col" className="text-xl font-extrabold text-white px-6 py-4">
-                        Looking For
+                      <th
+                        scope="col"
+                        className="text-xl font-extrabold text-white px-6 py-4"
+                      >
+                        Applicants
                       </th>
-                      <th scope="col" className="text-xl font-extrabold text-white px-6 py-4">
+                      <th
+                        scope="col"
+                        className="text-xl font-extrabold text-white px-6 py-4"
+                      >
                         Contact !
                       </th>
                     </tr>
-                  </thead >
+                  </thead>
                   <tbody>
-                    {data.people.map((item, i) => (<tr key={i} className="bg-white border-b">
-                      <td className="px-6 py-4 whitespace-nowrap text-2xl font-medium text-gray-900">{i + 1}</td>
-                      <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {item.name}
-                      </td>
-                      <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {item.disability}
-                      </td>
-                      <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {item.qualificaions}
-                      </td>
-                      <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {item.jobType}
-                      </td>
-                      <td className="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        <button className="text-gray-900 bg-teal-300 rounded-full  hover:bg-teal-400 px-4 py-2 font-semibold  duration-700">
-                          Contact
-                        </button>
-                      </td>
-                    </tr>))}
-
+                    {!loading &&
+                      data.map((item, i) => (
+                        <tr key={i} className="bg-white border-b">
+                          <td className="px-6 py-4 whitespace-nowrap text-2xl font-medium text-gray-900">
+                            {i + 1}
+                          </td>
+                          <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {item.title}
+                          </td>
+                          <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {item.salary}
+                          </td>
+                          <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {item.location}
+                          </td>
+                          <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {item.applicants}
+                          </td>
+                          <td className="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            <button className="text-gray-900 bg-teal-300 rounded-full  hover:bg-teal-400 px-4 py-2 font-semibold  duration-700">
+                              Contact
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
                   </tbody>
                 </table>
               </div>
