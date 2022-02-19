@@ -3,6 +3,35 @@ import { useSteps } from "react-step-builder";
 
 function Step4() {
   const { prev } = useSteps();
+
+  const data = {
+    people: [
+      {
+        name: "ABC",
+        disability: "Blind",
+        qualificaions: "Degree",
+        jobType: "Freelance",
+      },
+      {
+        name: "XYZ",
+        disability: "Blind",
+        qualificaions: "Degree",
+        jobType: "Freelance",
+      },
+      {
+        name: "PQR",
+        disability: "Blind",
+        qualificaions: "Degree",
+        jobType: "Freelance",
+      },
+      {
+        name: "LMN",
+        disability: "Blind",
+        qualificaions: "Degree",
+        jobType: "Freelance",
+      },
+    ]
+  }
   return (
     <div className="p-5 bg-gray-900 mt-5">
       <div className="mx-4 p-4">
@@ -78,52 +107,59 @@ function Step4() {
           </div>
         </div>
       </div>
+      {/* Table */}
       <div className="mt-8 p-4">
-        <div>
-          <div className="font-bold text-gray-600 text-xs leading-8 uppercase h-6 mx-2 mt-3">
-            Full Name
-          </div>
-          <div className="flex flex-col md:flex-row">
-            <div className="w-full flex-1 mx-2 svelte-1l8159u">
-              <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                <input
-                  placeholder="First Name"
-                  className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
-                />{" "}
-              </div>
-            </div>
-            <div className="w-full flex-1 mx-2 svelte-1l8159u">
-              <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                <input
-                  placeholder="Last Name"
-                  className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
-                />{" "}
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row">
-            <div className="w-full mx-2 flex-1 svelte-1l8159u">
-              <div className="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase">
-                {" "}
-                Username
-              </div>
-              <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                <input
-                  placeholder="Just a hint.."
-                  className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
-                />{" "}
-              </div>
-            </div>
-            <div className="w-full mx-2 flex-1 svelte-1l8159u">
-              <div className="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase">
-                {" "}
-                Your Email
-              </div>
-              <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                <input
-                  placeholder="jhon@doe.com"
-                  className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
-                />{" "}
+        <div className="flex flex-col">
+          <div className="overflow-x-auto sm:-mx-6 lg:-mx-10">
+            <div className="py-4 inline-block min-w-full sm:px-6 lg:px-10">
+              <div className="overflow-hidden">
+                <table className="min-w-full text-center">
+                  <thead className="border-b bg-gray-800">
+                    <tr>
+                      <th scope="col" className="text-xl font-extrabold text-white py-4">
+                        Sr. No.
+                      </th>
+                      <th scope="col" className="text-xl font-extrabold text-white px-6 py-4">
+                        Employee Name
+                      </th>
+                      <th scope="col" className="text-xl font-extrabold text-white px-6 py-4">
+                        Disability
+                      </th>
+                      <th scope="col" className="text-xl font-extrabold text-white px-6 py-4">
+                        Qualifications
+                      </th>
+                      <th scope="col" className="text-xl font-extrabold text-white px-6 py-4">
+                        Looking For
+                      </th>
+                      <th scope="col" className="text-xl font-extrabold text-white px-6 py-4">
+                        Contact !
+                      </th>
+                    </tr>
+                  </thead >
+                  <tbody>
+                    {data.people.map((item, i) => (<tr key={i} className="bg-white border-b">
+                      <td className="px-6 py-4 whitespace-nowrap text-2xl font-medium text-gray-900">{i + 1}</td>
+                      <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {item.name}
+                      </td>
+                      <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {item.disability}
+                      </td>
+                      <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {item.qualificaions}
+                      </td>
+                      <td className="text-2xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {item.jobType}
+                      </td>
+                      <td className="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        <button class="text-gray-900 bg-teal-300 rounded-full  hover:bg-teal-400 px-4 py-2 font-semibold  duration-700">
+                          Contact
+                        </button>
+                      </td>
+                    </tr>))}
+
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -140,19 +176,19 @@ function Step4() {
           >
             Previous
           </button>
-          <div className="flex-auto flex flex-row-reverse">
-            <button
-              className="text-base  ml-2  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+          {/* <div className="flex-auto flex flex-row-reverse">
+                        <button
+                            className="text-base  ml-2  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
                 hover:bg-teal-600  
                 bg-teal-600 
                 text-teal-100 
                 border duration-200 ease-in-out 
                 border-teal-600 transition"
-              onClick={console.log("SUBMIT")}
-            >
-              Submit
-            </button>
-          </div>
+                            onClick={console.log("SUBMIT")}
+                        >
+                            Submit
+                        </button>
+                    </div> */}
         </div>
       </div>
     </div>
