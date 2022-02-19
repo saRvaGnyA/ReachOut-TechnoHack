@@ -77,6 +77,13 @@ function Personal() {
                                 <input id="GSTIN No." placeholder="GSTIN No." className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
                         </div>
                     </div>
+                    <div className="flex flex-col md:flex-row">
+                        <div className="w-full mx-2 flex-1 svelte-1l8159u">
+                            <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase"><label for="Create Password">Create Password</label></div>
+                            <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                                <input id="Create Password" type="password" placeholder="Password" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="flex p-2 mt-4">
                     <div className="flex-auto flex flex-row-reverse">

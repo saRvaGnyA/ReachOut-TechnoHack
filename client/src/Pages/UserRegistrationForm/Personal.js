@@ -52,39 +52,46 @@ function Personal() {
             </div>
             <div className="mt-8 p-4">
                 <div>
-                    <div className="font-bold text-gray-600 text-xl leading-8 uppercase h-6 mx-2 mt-3">Full Name</div>
+                    <div className="font-bold text-gray-600 text-xl leading-8 uppercase h-6 mx-2 mt-3"><label for="fname">Full Name</label></div>
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full flex-1 mx-2 svelte-1l8159u">
                             <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                                <input placeholder="First Name" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
+                                <input id="fname" placeholder="First Name" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
                         </div>
                         <div className="w-full flex-1 mx-2 svelte-1l8159u">
                             <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                                <input placeholder="Last Name" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
+                                <input id="lname" placeholder="Last Name" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full mx-2 flex-1 svelte-1l8159u">
-                            <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase"> Mobile</div>
+                            <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase"> <label for="Mobile">Mobile</label></div>
                             <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                                <input placeholder="Just a hint.." className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
+                                <input id="Mobile" placeholder="Just a hint.." className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
                         </div>
                         <div className="w-full mx-2 flex-1 svelte-1l8159u">
-                            <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase"> Your Email</div>
+                            <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase"> <label for="Mail">Your Email</label></div>
                             <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                                <input placeholder="jhon@doe.com" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" type = "email"/> </div>
+                                <input id="Mail" placeholder="jhon@doe.com" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" type = "email"/> </div>
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full mx-2 flex-1 svelte-1l8159u">
-                            <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase"> Aadhar Card No.</div>
+                            <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase"> <label for="Aadhar">Aadhar Card No.</label></div>
                             <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                                <input placeholder="Aadhar No." className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
+                                <input id="Aadhar" placeholder="Aadhar No." className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
                         </div>
                         <div className="w-full mx-2 flex-1 svelte-1l8159u">
-                            <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">Age</div>
+                            <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase"><label for="Age">Age</label></div>
                             <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                                <input placeholder="Age" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
+                                <input id="Age" placeholder="Age" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
+                        </div>
+                    </div>
+                    <div className="flex flex-col md:flex-row">
+                        <div className="w-full mx-2 flex-1 svelte-1l8159u">
+                            <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase"> <label for="Password">Create Password</label></div>
+                            <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
+                                <input id="Password" type="password" placeholder="Create password" className="p-1 px-2 appearance-none outline-none w-full text-gray-800" /> </div>
                         </div>
                     </div>
                 </div>

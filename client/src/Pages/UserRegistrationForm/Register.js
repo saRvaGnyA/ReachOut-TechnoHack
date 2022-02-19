@@ -3,7 +3,7 @@ import { Steps, StepsProvider, useSteps } from "react-step-builder";
 import Personal from "./Personal";
 import Disability from "./Disability";
 import JobSpecifics from "./Job_Specifics";
-import Step4 from "./Step4";
+import Step4 from "./Jobs";
 
 function Register(){
     return (
