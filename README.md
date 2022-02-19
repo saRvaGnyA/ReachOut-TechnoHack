@@ -5,7 +5,7 @@ ReachOut aims to be a one-stop shop to satisfy all the job-needs for specially a
 It helps connec companies with the workforce while promopting a positive environment for people wih speical needs to ineract.
 ReachOut's goal is to abide by all [WCAG rules](https://www.w3.org/WAI/standards-guidelines/wcag/) by following [WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) protocols
 
-## Features 
+## Features :man_technologist:
 #### Added
 - The entire website will designed with accessibility (a11y) at the forefront.
 - Designing web components keeping visually impaired in mind
@@ -18,48 +18,44 @@ ReachOut's goal is to abide by all [WCAG rules](https://www.w3.org/WAI/standards
 - Face Login
 - Payment Gateway Integration
 
-## Tech Stack
+## Tech Stack :rocket:
 
-**Client:** 
+**Client:** :computer:
 - React 
 - TailwindCSS
 
-**Server:** 
+**Server:** :desktop_computer::electric_plug:
 - Node
 - MongoDB
 
-## Description
-#### UI design
+## Description 	:mag_right:
+#### UI design 
 - The UI will be high-contrast so that it remains accessible the color blind
 - There will be options to change the font, font-size, clickable link formatting, button contrast, etc in the future.
 
-#### Login
+#### Login 
 - Two Access login from - Users and Companies.
     - Companies can list Job posititons for recruitment.
     - Users can search for jobs suitable to their abilities.
 - Aadhar Card number is used while registering, so that the user can be informed about the various schemes/initiatives/incentives he is eligible for from his employer, while selecting a job
 
-#### UX
+#### UX 
 - If the user already uses some 3rd party service for it, the website will conform to the standard accessibility specifications for easy integration
 - Speech-to-Text/Screen Reader will be made available.  
 - Users can register using Face ID instead of standard username/password.
 
-#### DataBase Connecivity
+#### DataBase Connecivity 
 - Backend DataBase Connectivity using MongoDB is implemented.
 - So User/Recruiter Company info is stored and they are recommended Jobs/Employees according to their preferences. 
 
-## Team Members
+## Team Members :nerd_face:
 - [@Sarvagnya Purohit](https://github.com/saRvaGnyA)
 - [@Pratiksha Sankhe](https://github.com/psankhe28)
 - [@Jash Shah](https://github.com/Jash-Shah)
 - [@Alisha Kamat](https://github.com/alisha-kamat)
 
 
-## Screenshots
+## Screenshots :camera_flash:
 
-![Home](/resources/Home.jpeg)
-![Home](/resources/Home.jpeg)
-![Home](/resources/Home.jpeg)
-![Home](/resources/Home.jpeg)
-
+![Home](/resources/ReachOut.jpg)
 
