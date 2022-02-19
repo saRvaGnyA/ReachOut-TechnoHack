@@ -1,0 +1,70 @@
+.modalContainerFloating {
+  position: fixed;
+  top: 50%;
+  left:4%;
+  margin-left:-105px;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 10px;
+  z-index: 1000;
+  width: 250px;
+  height: 300px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+@media screen and (min-width: 750px) {
+    .modalContainerFloating {
+        left:20%;
+    }
+  }
+.modalContainerFloating .titleFloating {
+  /* display: inline-block; */
+  text-align: center;
+  margin: 5px 0;
+}
+
+.titleCloseBtnFloating {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtnFloating button {
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.modalContainerFloating .body {
+  flex: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.modalContainerFloating .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainerFloating .footer button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#cancelBtnFloating {
+  background-color: crimson;
+  border-radius: 8px;
+  padding:0 5px;
+  margin-left:150px
+}

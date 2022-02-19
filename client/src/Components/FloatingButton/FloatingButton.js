@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FloatingButton.css";
+import Modal from "./ModalFloatingButton";
 const FloatingButton = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
-    <div className="container">
-      <input type="checkbox" id="toggle-btn" />
-      <label htmlFor="toggle-btn" />
-      <div className="nav">
-        <a href="/">ahfhf</a>
-        <a href="/">bhdhdhd</a>
-        <a href="/">cfhhf</a>
-        <a href="/">dhfhf</a>
-      </div>
-    </div>
+    <>
+      <button
+            className="floating"
+            onClick={() => {
+              setModalOpen(true);
+            }}
+          >
+            <i className="fa fa-universal-access aria-hidden=true"></i>
+          </button>
+          {modalOpen && <Modal setOpenModal={setModalOpen} />}
+    </>
   );
 };
 

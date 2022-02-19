@@ -6,21 +6,29 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Register from "./Pages/UserRegistrationForm/Register";
 import CompanyRegister from "./Pages/CompanyRegistrationForm/CompanyRegister";
-import ContactUs from "./Pages/ContactUs/ContactUs";
 import UserProfile from "./Components/User Profile/UserProfile";
+import ContactUs from "./Pages/ContactUs/ContactUs";
+import LoginFormRecruit from "./Pages/LoginForm/LoginFormRecruit/LoginFormRecruit";
+import LoginFormJob from "./Pages/LoginForm/LoginFormJob/LoginFormJob";
+import FloatingButton from "./Components/FloatingButton/FloatingButton";
+
+
 
 function App() {
   return (
     <>
       <Navbar />
+      <FloatingButton/>
       <Router>
         <div className="App">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route exact path="/contact" element={<ContactUs />} />
+            <Route exact path="/contact" element={<ContactUs/>} />
             <Route exact path="/jobLookUp" element={<Register />} />
             <Route exact path="/recruit" element={<CompanyRegister />} />
             <Route exact path="/user" element={<UserProfile />} />
+            <Route exact path="/loginCompany" element={<LoginFormRecruit/>} />
+            <Route exact path="/loginEmployee" element={<LoginFormJob/>} />
           </Routes>
         </div>
       </Router>

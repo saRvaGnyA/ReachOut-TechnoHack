@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import Modal from "../LoginPopup/Modal";
 import logo from "../../Logo.png";
 
+
 const Navbar = () => {
-  let [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <div className="shadow-md w-full fixed top-0 left-0 fixed-top">
       <div className="md:flex items-center justify-between bg-gray-300 py-2 md:px-10 px-7">
@@ -10,12 +14,14 @@ const Navbar = () => {
           className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
     text-gray-800"
         >
-          <span className="text-3xl text-teal-600 mr-1 pt-2">
-            <a href="/">
+           <span className="text-3xl text-teal-600 mr-1 pt-2">
+            <a href="/" className="no-underline text-decoration-none text-gray-900">
               <img src={logo} width="65" alt="Logo" />
             </a>
           </span>
+          <a href="/" className="no-underline text-decoration-none text-gray-900 hover:text-gray-900">
           ReachOut
+          </a>
         </div>
 
         <div
@@ -66,9 +72,13 @@ const Navbar = () => {
           <button
             className="bg-teal-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-teal-400 
     duration-500"
+            onClick={() => {
+              setModalOpen(true);
+            }}
           >
             Login
           </button>
+          {modalOpen && <Modal setOpenModal={setModalOpen} />}
         </ul>
       </div>
     </div>
