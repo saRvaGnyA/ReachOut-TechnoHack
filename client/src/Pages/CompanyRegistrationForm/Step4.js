@@ -152,7 +152,7 @@ function Step4() {
                         {item.jobType}
                       </td>
                       <td className="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        <button class="text-gray-900 bg-teal-300 rounded-full  hover:bg-teal-400 px-4 py-2 font-semibold  duration-700">
+                        <button className="text-gray-900 bg-teal-300 rounded-full  hover:bg-teal-400 px-4 py-2 font-semibold  duration-700">
                           Contact
                         </button>
                       </td>

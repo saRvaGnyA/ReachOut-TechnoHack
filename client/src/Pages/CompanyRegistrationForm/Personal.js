@@ -83,7 +83,7 @@ function Personal() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Company Name">Company Name</label>
+                <label htmlFor="Company Name">Company Name</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
@@ -96,7 +96,7 @@ function Personal() {
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
                 {" "}
-                <label for="Company Head">Company Head</label>
+                <label htmlFor="Company Head">Company Head</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
@@ -111,7 +111,7 @@ function Personal() {
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
                 {" "}
-                <label for="Phone No.">Phone No.</label>
+                <label htmlFor="Phone No.">Phone No.</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
@@ -124,7 +124,7 @@ function Personal() {
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
                 {" "}
-                <label for="Email">Email</label>
+                <label htmlFor="Email">Email</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
@@ -139,7 +139,7 @@ function Personal() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Company Website">Company Website</label>
+                <label htmlFor="Company Website">Company Website</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
@@ -151,7 +151,7 @@ function Personal() {
             </div>
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="GSTIN No.">GSTIN No.</label>
+                <label htmlFor="GSTIN No.">GSTIN No.</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
@@ -165,7 +165,7 @@ function Personal() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Create Password">Create Password</label>
+                <label htmlFor="Create Password">Create Password</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input

@@ -12,7 +12,7 @@ const Navbar = () => {
         >
           <span className="text-3xl text-teal-600 mr-1 pt-2">
             <a href="/">
-              <img src={logo} width="65" />
+              <img src={logo} width="65" alt="Logo" />
             </a>
           </span>
           ReachOut

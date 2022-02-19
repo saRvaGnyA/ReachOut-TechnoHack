@@ -83,7 +83,7 @@ function Disability() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Disability Type">Disability Type</label>
+                <label htmlFor="Disability Type">Disability Type</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
@@ -97,7 +97,7 @@ function Disability() {
             </div>
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Disability">Disability</label>
+                <label htmlFor="Disability">Disability</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
@@ -116,7 +116,7 @@ function Disability() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Severity">Severity</label>
+                <label htmlFor="Severity">Severity</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
@@ -131,7 +131,7 @@ function Disability() {
             </div>
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Job Preference">Job Preference</label>
+                <label htmlFor="Job Preference">Job Preference</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
