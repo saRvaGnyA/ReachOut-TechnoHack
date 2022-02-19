@@ -42,7 +42,7 @@ const LoginFormJob = () => {
             <h2 className="title text-bold text-white">Login to Find A Job</h2>
             <div className="input-div one">
               <div className="i">
-                <i className="fas fa-user" aria-hidden="true"></i>
+                <i className="fa fa-user" aria-hidden="true"></i>
               </div>
               <div className="div">
                 <input

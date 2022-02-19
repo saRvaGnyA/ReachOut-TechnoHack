@@ -12,6 +12,7 @@ import LoginFormRecruit from "./Pages/LoginForm/LoginFormRecruit/LoginFormRecrui
 import LoginFormJob from "./Pages/LoginForm/LoginFormJob/LoginFormJob";
 import FloatingButton from "./Components/FloatingButton/FloatingButton";
 import Jobs from "./Pages/UserRegistrationForm/Jobs";
+import JobSpecifics from "./Pages/CompanyRegistrationForm/Job_Specifics";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/jobLookUp" element={<Register />} />
             <Route exact path="/jobs" element={<Jobs />} />
             <Route exact path="/recruit" element={<CompanyRegister />} />
+            <Route exact path="/recruitnow" element={<JobSpecifics />} />
             <Route exact path="/user" element={<UserProfile />} />
             <Route exact path="/loginCompany" element={<LoginFormRecruit />} />
             <Route exact path="/loginEmployee" element={<LoginFormJob />} />

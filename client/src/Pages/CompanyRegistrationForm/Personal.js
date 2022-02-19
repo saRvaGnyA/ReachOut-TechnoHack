@@ -1,8 +1,29 @@
 import React from "react";
 import { useSteps } from "react-step-builder";
 
-function Personal() {
+function Personal({ companyDetails, setCompanyDetails }) {
   const { prev, next } = useSteps();
+  const host = "https://reachout-server.herokuapp.com";
+
+  const onChange = (e) => {
+    setCompanyDetails({ ...companyDetails, [e.target.name]: e.target.value });
+  };
+
+  const submitHandler = async (e) => {
+    const url = `${host}/api/company/createcompany`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...companyDetails }),
+    });
+    const company = await response.json();
+    console.log(company);
+    localStorage.setItem("auth-token", company.authToken);
+    next();
+  };
+
   return (
     <div className="p-5 bg-gray-900 mt-5">
       <div className="mx-4 p-4">
@@ -83,11 +104,14 @@ function Personal() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label htmlFor="Company Name">Company Name</label>
+                <label htmlFor="name">Company Name</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Company Name"
+                  id="name"
+                  name="name"
+                  onChange={onChange}
+                  value={companyDetails.name}
                   placeholder="XYZ PVT. LTD."
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -96,11 +120,14 @@ function Personal() {
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
                 {" "}
-                <label htmlFor="Company Head">Company Head</label>
+                <label htmlFor="head">Company Head</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Company Head"
+                  id="head"
+                  name="head"
+                  onChange={onChange}
+                  value={companyDetails.head}
                   placeholder="Full Name"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -111,11 +138,14 @@ function Personal() {
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
                 {" "}
-                <label htmlFor="Phone No.">Phone No.</label>
+                <label htmlFor="mobile">Phone No.</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Phone No."
+                  id="mobile"
+                  name="mobile"
+                  onChange={onChange}
+                  value={companyDetails.mobile}
                   placeholder="Phone No."
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -124,12 +154,15 @@ function Personal() {
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
                 {" "}
-                <label htmlFor="Email">Email</label>
+                <label htmlFor="email">Email</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Email"
-                  placeholder="jhon@doe.com"
+                  id="email"
+                  name="email"
+                  onChange={onChange}
+                  value={companyDetails.email}
+                  placeholder="john@gmail.com"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                   type="email"
                 />{" "}
@@ -139,11 +172,14 @@ function Personal() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label htmlFor="Company Website">Company Website</label>
+                <label htmlFor="website">Company Website</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Company Website"
+                  id="website"
+                  name="website"
+                  onChange={onChange}
+                  value={companyDetails.website}
                   placeholder="Website Link"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -151,11 +187,14 @@ function Personal() {
             </div>
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label htmlFor="GSTIN No.">GSTIN No.</label>
+                <label htmlFor="gstin">GSTIN No.</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="GSTIN No."
+                  id="gstin"
+                  name="gstin"
+                  onChange={onChange}
+                  value={companyDetails.gstin}
                   placeholder="GSTIN No."
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -165,11 +204,14 @@ function Personal() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label htmlFor="Create Password">Create Password</label>
+                <label htmlFor="password">Create Password</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Create Password"
+                  id="password"
+                  name="password"
+                  onChange={onChange}
+                  value={companyDetails.password}
                   type="password"
                   placeholder="Password"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
@@ -187,7 +229,7 @@ function Personal() {
                 text-teal-100 
                 border duration-200 ease-in-out 
                 border-teal-600 transition"
-              onClick={next}
+              onClick={submitHandler}
             >
               Next
             </button>
