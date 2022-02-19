@@ -10,6 +10,7 @@ const {
   fetchAllJobs,
   addJob,
   fetchAllCompanyJobs,
+  applyJob,
 } = require("../controllers/controller-jobs");
 
 const router = express.Router();
@@ -28,5 +29,8 @@ router.post(
 
 // Route 3: Get all the company-specific jobs using: GET "/api/jobs/fetchallcompanyjobs". Login required
 router.get("/fetchallcompanyjobs", fetchCompany, fetchAllCompanyJobs);
+
+// Route 4: Apply for a job using: POST "api/jobs/apply/:jobid". Login required
+router.post("/apply/:jobid", fetchUser, applyJob);
 
 module.exports = router;

@@ -38,3 +38,15 @@ module.exports.fetchAllCompanyJobs = async (req, res) => {
     console.error(err);
   }
 };
+
+module.exports.applyJob = async (req, res) => {
+  try {
+    const { jobid } = req.params;
+    const job = await Job.findById(jobid);
+    job.applicants.push(req.user._id);
+    await job.save();
+    res.json({ success: true, message: "Applied successfully" });
+  } catch (err) {
+    console.error(err);
+  }
+};

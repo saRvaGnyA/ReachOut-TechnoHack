@@ -29,6 +29,12 @@ const JobSchema = new Schema({
     type: String,
     required: true,
   },
+  applicants: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+    },
+  ],
   timestamp: {
     type: Date,
     default: Date.now,
