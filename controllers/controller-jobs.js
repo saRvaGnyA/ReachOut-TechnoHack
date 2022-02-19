@@ -43,7 +43,7 @@ module.exports.applyJob = async (req, res) => {
   try {
     const { jobid } = req.params;
     const job = await Job.findById(jobid);
-    job.applicants.push(req.user._id);
+    job.applicants.push(req.user.id);
     await job.save();
     res.json({ success: true, message: "Applied successfully" });
   } catch (err) {
