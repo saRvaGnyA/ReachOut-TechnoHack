@@ -1,8 +1,13 @@
 import React from "react";
 import { useSteps } from "react-step-builder";
 
-function Disability() {
+function Disability({ userDetails, setUserDetails }) {
   const { prev, next } = useSteps();
+
+  const onChange = (e) => {
+    setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="p-5 bg-gray-900 mt-5">
       <div className="mx-4 p-4">
@@ -107,11 +112,14 @@ function Disability() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Disability Type">Disability Type</label>
+                <label htmlFor="disabilitytype">Disability Type</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
-                  id="Disability Type"
+                  id="disabilitytype"
+                  name="disabilitytype"
+                  onChange={onChange}
+                  value={userDetails.disabilitytype}
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 >
                   <option value="Physical">Physical</option>
@@ -121,11 +129,14 @@ function Disability() {
             </div>
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Disability">Disability</label>
+                <label htmlFor="disability">Disability</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
-                  id="Disability"
+                  id="disability"
+                  name="disability"
+                  onChange={onChange}
+                  value={userDetails.disability}
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 >
                   <option value="Blind">Blind</option>
@@ -140,12 +151,15 @@ function Disability() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Severity">Severity</label>
+                <label htmlFor="severity">Severity</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
                   type="number"
-                  id="Severity"
+                  id="severity"
+                  name="severity"
+                  onChange={onChange}
+                  value={userDetails.severity}
                   min="1"
                   max="5"
                   placeholder="1"
@@ -155,7 +169,7 @@ function Disability() {
             </div>
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Job Preference">Job Preference</label>
+                <label htmlFor="Job Preference">Job Preference</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select

@@ -1,8 +1,13 @@
 import React from "react";
 import { useSteps } from "react-step-builder";
 
-function JobSpecifics() {
+function JobSpecifics({ userDetails, setUserDetails }) {
   const { prev, next } = useSteps();
+
+  const onChange = (e) => {
+    setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="p-5 bg-gray-900 mt-5">
       <div className="mx-4 p-4">
@@ -107,11 +112,11 @@ function JobSpecifics() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Disability Type">Job Type</label>
+                <label htmlFor="jobtype">Job Type</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
-                  id="Job Type"
+                  id="jobtype"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 >
                   <option value="Full-Time">Full-Time</option>
@@ -121,11 +126,14 @@ function JobSpecifics() {
             </div>
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Qualifications">Qualifications</label>
+                <label htmlFor="qualifications">Qualifications</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
-                  id="Qualifications"
+                  id="qualifications"
+                  name="qualifications"
+                  onChange={onChange}
+                  value={userDetails.qualifications}
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 >
                   <option value="Less than 10">Less than 10</option>
@@ -139,11 +147,11 @@ function JobSpecifics() {
           <div className="flex flex-col md:flex-row">
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Sector">Sector</label>
+                <label htmlFor="sector">Sector</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <select
-                  id="Sector"
+                  id="sector"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 >
                   <option value="Arts, Entertainment, Recreation">
@@ -175,17 +183,17 @@ function JobSpecifics() {
             </div>
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label for="Job Preference">Job Preference</label>
+                <label htmlFor="place">Place Preference</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
-                <select
-                  id="Job Preference"
+                <input
+                  id="place"
+                  name="place"
+                  onChange={onChange}
+                  value={userDetails.place}
+                  placeholder="Place"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
-                >
-                  <option value="Full-Time">Full-Time</option>
-                  <option value="Part-Time">Part-Time</option>
-                  <option value="Freelance">Freelance</option>
-                </select>{" "}
+                />{" "}
               </div>
             </div>
           </div>

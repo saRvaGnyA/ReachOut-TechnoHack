@@ -1,24 +1,29 @@
-import React from "react";
-import { Steps, StepsProvider, useSteps } from "react-step-builder";
+import React, { useState } from "react";
+import { Steps, StepsProvider } from "react-step-builder";
 import Personal from "./Personal";
 import Disability from "./Disability";
 import JobSpecifics from "./Job_Specifics";
 import Step4 from "./Jobs";
 
 function Register() {
+  const [userDetails, setUserDetails] = useState({});
+
   return (
     <StepsProvider>
-      <RegisterSteps />
+      <RegisterSteps
+        userDetails={userDetails}
+        setUserDetails={setUserDetails}
+      />
     </StepsProvider>
   );
 }
 
-function RegisterSteps() {
+function RegisterSteps({ userDetails, setUserDetails }) {
   // const { prev, next, jump, total, current, progress } = useSteps();
   return (
     <div className="Register">
       <Steps>
-        <Personal />
+        <Personal userDetails={userDetails} setUserDetails={setUserDetails} />
         {/*First Name
                     Last Name
                     Aadhar
@@ -26,18 +31,21 @@ function RegisterSteps() {
                     Mobile 
                     Age
                     preferred place of work*/}
-        <Disability />
+        <Disability userDetails={userDetails} setUserDetails={setUserDetails} />
         {/*Mental/Physical
                     Disability
                     Severity(Slider)
                     Job preference - Part-Time/Free-Time/FreeLance
                     */}
-        <JobSpecifics />
+        <JobSpecifics
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
+        />
         {/*Job Type - Part-Time Job / Candidate for testing(Checkbox)
                     Qualifications - less than 10 / 10+2 / Degree 
                     Sector
                     */}
-        <Step4 />
+        <Step4 userDetails={userDetails} setUserDetails={setUserDetails} />
       </Steps>
       {/* <div className="navigation">
                 <button onClick={prev}>Prev</button>

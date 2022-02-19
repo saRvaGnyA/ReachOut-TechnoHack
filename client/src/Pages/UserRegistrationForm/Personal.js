@@ -1,8 +1,13 @@
 import React from "react";
 import { useSteps } from "react-step-builder";
 
-function Personal() {
-  const { prev, next } = useSteps();
+function Personal({ userDetails, setUserDetails }) {
+  const { next } = useSteps();
+
+  const onChange = (e) => {
+    setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="p-5 bg-gray-900 mt-5">
       <div className="mx-4 p-4">
@@ -105,13 +110,16 @@ function Personal() {
       <div className="mt-8 p-4">
         <div>
           <div className="font-bold text-gray-600 text-xl leading-8 uppercase h-6 mx-2 mt-3">
-            <label htmlFor="fname">Full Name</label>
+            <label htmlFor="firstname">Full Name</label>
           </div>
           <div className="flex flex-col md:flex-row">
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="fname"
+                  id="firstname"
+                  name="firstname"
+                  value={userDetails.firstname}
+                  onChange={onChange}
                   placeholder="First Name"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -120,7 +128,10 @@ function Personal() {
             <div className="w-full flex-1 mx-2 svelte-1l8159u">
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="lname"
+                  id="lastname"
+                  value={userDetails.lastname}
+                  name="lastname"
+                  onChange={onChange}
                   placeholder="Last Name"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -131,11 +142,14 @@ function Personal() {
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
                 {" "}
-                <label htmlFor="Mobile">Mobile</label>
+                <label htmlFor="mobile">Mobile</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Mobile"
+                  id="mobile"
+                  name="mobile"
+                  value={userDetails.mobile}
+                  onChange={onChange}
                   placeholder="Just a hint.."
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -144,12 +158,15 @@ function Personal() {
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
                 {" "}
-                <label htmlFor="Mail">Your Email</label>
+                <label htmlFor="email">Your Email</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Mail"
-                  placeholder="jhon@doe.com"
+                  id="email"
+                  name="email"
+                  onChange={onChange}
+                  value={userDetails.email}
+                  placeholder="john@doe.com"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                   type="email"
                 />{" "}
@@ -160,11 +177,14 @@ function Personal() {
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
                 {" "}
-                <label htmlFor="Aadhar">Aadhar Card No.</label>
+                <label htmlFor="aadhar">Aadhar Card No.</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Aadhar"
+                  id="aadhar"
+                  name="aadhar"
+                  value={userDetails.aadhar}
+                  onChange={onChange}
                   placeholder="Aadhar No."
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -172,11 +192,14 @@ function Personal() {
             </div>
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
-                <label htmlFor="Age">Age</label>
+                <label htmlFor="age">Age</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Age"
+                  id="age"
+                  name="age"
+                  value={userDetails.age}
+                  onChange={onChange}
                   placeholder="Age"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
                 />{" "}
@@ -187,11 +210,14 @@ function Personal() {
             <div className="w-full mx-2 flex-1 svelte-1l8159u">
               <div className="font-bold h-6 mt-3 text-gray-600 text-xl leading-8 uppercase">
                 {" "}
-                <label htmlFor="Password">Create Password</label>
+                <label htmlFor="password">Create Password</label>
               </div>
               <div className="bg-white my-2 p-1 flex border border-gray-200 rounded svelte-1l8159u">
                 <input
-                  id="Password"
+                  id="password"
+                  name="password"
+                  value={userDetails.password}
+                  onChange={onChange}
                   type="password"
                   placeholder="Create password"
                   className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
