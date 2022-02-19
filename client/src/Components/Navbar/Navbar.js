@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import logo from "../../Logo.png"
 
 const Navbar = () => {
   let [open, setOpen] = useState(false);
@@ -11,10 +12,10 @@ const Navbar = () => {
         >
           <span className="text-3xl text-teal-600 mr-1 pt-2">
             <a href="/">
-              <ion-icon name="logo-ionic"></ion-icon>
+              <img src={logo} width="65"/>
             </a>
           </span>
-          ReachOut
+            ReachOut
         </div>
 
         <div
