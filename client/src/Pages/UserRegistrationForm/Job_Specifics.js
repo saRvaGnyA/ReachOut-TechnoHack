@@ -10,7 +10,7 @@ function JobSpecifics({ userDetails, setUserDetails }) {
     setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
   };
 
-  const submitDetails = async () => {
+  const submitHandler = async (e) => {
     const url = `${host}/api/user/createuser`;
     const response = await fetch(url, {
       method: "POST",
@@ -21,10 +21,7 @@ function JobSpecifics({ userDetails, setUserDetails }) {
     });
     const user = await response.json();
     console.log(user);
-  };
-
-  const submitHandler = (e) => {
-    submitDetails();
+    localStorage.setItem("auth-token", user.authToken);
     next();
   };
 

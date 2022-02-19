@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Steps, StepsProvider } from "react-step-builder";
+import { useNavigate } from "react-router-dom";
 import Personal from "./Personal";
 import Disability from "./Disability";
 import JobSpecifics from "./Job_Specifics";
@@ -7,6 +8,13 @@ import Step4 from "./Jobs";
 
 function Register() {
   const [userDetails, setUserDetails] = useState({});
+  let history = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("auth-token")) {
+      history("/jobs", { replace: true });
+    }
+  }, []);
 
   return (
     <StepsProvider>
