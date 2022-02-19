@@ -4,8 +4,28 @@ import { useSteps } from "react-step-builder";
 function JobSpecifics({ userDetails, setUserDetails }) {
   const { prev, next } = useSteps();
 
+  const host = "https://reachout-server.herokuapp.com";
+
   const onChange = (e) => {
     setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
+  };
+
+  const submitDetails = async () => {
+    const url = `${host}/api/user/createuser`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...userDetails }),
+    });
+    const user = await response.json();
+    console.log(user);
+  };
+
+  const submitHandler = (e) => {
+    submitDetails();
+    next();
   };
 
   return (
@@ -160,8 +180,8 @@ function JobSpecifics({ userDetails, setUserDetails }) {
                   <option value="Clothing and Accessories">
                     Clothing and Accessories
                   </option>
-                  <option value="Data Sciece, Processing, Management">
-                    Data Sciece, Processing, Management
+                  <option value="Data Science, Processing, Management">
+                    Data Science, Processing, Management
                   </option>
                   <option value="Education and Health Services">
                     Education and Health Services
@@ -178,6 +198,7 @@ function JobSpecifics({ userDetails, setUserDetails }) {
                   <option value="Repair and Maintainence">
                     Repair and Maintainence
                   </option>
+                  <option value="All">All</option>
                 </select>{" "}
               </div>
             </div>
@@ -218,7 +239,7 @@ function JobSpecifics({ userDetails, setUserDetails }) {
                 text-teal-100 
                 border duration-200 ease-in-out 
                 border-teal-600 transition"
-              onClick={next}
+              onClick={submitHandler}
             >
               Show Jobs!
             </button>
