@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Modal from "../LoginPopup/Modal";
 import logo from "../../Logo3.png";
-
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  let history = useNavigate();
 
   return (
     <div className="shadow-md w-full fixed top-0 left-0 fixed-top">
@@ -14,13 +15,19 @@ const Navbar = () => {
           className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
     text-gray-800"
         >
-           <span className="text-3xl text-teal-600 mr-1 pt-2">
-            <a href="/" className="no-underline text-decoration-none text-gray-900">
+          <span className="text-3xl text-teal-600 mr-1 pt-2">
+            <a
+              href="/"
+              className="no-underline text-decoration-none text-gray-900"
+            >
               <img src={logo} width="90" alt="Logo" />
             </a>
           </span>
-          <a href="/" className="no-underline text-decoration-none text-gray-900 hover:text-gray-900">
-          ReachOut
+          <a
+            href="/"
+            className="no-underline text-decoration-none text-gray-900 hover:text-gray-900"
+          >
+            ReachOut
           </a>
         </div>
 
@@ -69,15 +76,28 @@ const Navbar = () => {
             </a>
           </li>
 
-          <button
-            className="bg-teal-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-teal-400 
+          {!localStorage.getItem("auth-token") ? (
+            <button
+              className="bg-teal-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-teal-400 
     duration-500"
-            onClick={() => {
-              setModalOpen(true);
-            }}
-          >
-            Login
-          </button>
+              onClick={() => {
+                setModalOpen(true);
+              }}
+            >
+              Login
+            </button>
+          ) : (
+            <button
+              className="bg-teal-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-teal-400 
+    duration-500"
+              onClick={() => {
+                localStorage.removeItem("auth-token");
+                history("/", { replace: true });
+              }}
+            >
+              Logout
+            </button>
+          )}
           {modalOpen && <Modal setOpenModal={setModalOpen} />}
         </ul>
       </div>

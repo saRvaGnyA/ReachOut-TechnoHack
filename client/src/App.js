@@ -16,10 +16,10 @@ import Jobs from "./Pages/UserRegistrationForm/Jobs";
 function App() {
   return (
     <>
-      <Navbar />
-      <FloatingButton />
       <Router>
         <div className="App">
+          <Navbar />
+          <FloatingButton />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route exact path="/contact" element={<ContactUs />} />
