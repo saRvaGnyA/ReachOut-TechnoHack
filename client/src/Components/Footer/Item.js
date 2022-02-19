@@ -1,6 +1,6 @@
 import React from "react";
 
-const Item = ({ Links}) => {
+const Item = ({ Links }) => {
   return (
     <ul>
       {Links.map((link) => (

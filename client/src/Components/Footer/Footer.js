@@ -11,8 +11,8 @@ const Footer = () => {
           className="lg:text-3xl text-2xl md:mb-0 mb-6 lg:leading-normal font-semibold
          md:w-3/5 sm:text-center"
         >
-          <span className="text-teal-400">Subscribe</span> for daily job regarding notifications
-          
+          <span className="text-teal-400">Subscribe</span> for daily job
+          regarding notifications
         </h1>
         <div className="sm:text-center">
           <input
