@@ -1,11 +1,33 @@
-![Logo](/client/src/Logo2.png)
-# ReachOut - Job Seeking App for the Differently Abled
+<h1 align="center">
+  <a href="https://github.com/saRvaGnyA/ReachOut">
+    <img src="https://github.com/saRvaGnyA/ReachOut/raw/main/client/src/Logo2.png" alt="ReachOut" width="250" height="250">
+  </a>
+  <br>
+  ReachOut
+</h1>
 
+<div align="center">
+   <strong>ReachOut</strong> - Job Seeking App for the Differently Abled <br>
+  Techno Hack || Team NeoStar <br> <br>
+  <img src="https://img.shields.io/github/forks/saRvaGnyA/ReachOut?style=for-the-badge">
+  <img src="https://img.shields.io/github/stars/saRvaGnyA/ReachOut?style=for-the-badge">
+</div>
+<hr>
+
+# ReachOut
+
+<table>
+  <tr>
+    <td>
 ReachOut aims to be a one-stop shop to satisfy all the job-needs for specially abled people.
 It helps connec companies with the workforce while promopting a positive environment for people wih speical needs to ineract.
-ReachOut's goal is to abide by all [WCAG rules](https://www.w3.org/WAI/standards-guidelines/wcag/) by following [WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) protocols
+        ReachOut's goal is to abide by all <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG rules</a> by following <a href="https://www.w3.org/WAI/standards-guidelines/aria/">WAI-ARIA</a> protocols
+  </td>
+ </tr>
+</table>
 
 ## Features :man_technologist:
+
 #### Added
 - The entire website will designed with accessibility (a11y) at the forefront.
 - Designing web components keeping visually impaired in mind
@@ -14,6 +36,7 @@ ReachOut's goal is to abide by all [WCAG rules](https://www.w3.org/WAI/standards
 - Companies can hire test candidates for accessibility testing of their products
 - Backend Database Connectivity
 - Speech to Text for search
+
 #### Future Scope
 - Face Login
 - Payment Gateway Integration
@@ -54,6 +77,10 @@ ReachOut's goal is to abide by all [WCAG rules](https://www.w3.org/WAI/standards
 - [@Jash Shah](https://github.com/Jash-Shah)
 - [@Alisha Kamat](https://github.com/alisha-kamat)
 
+## Resources 🔨
+
+- [Vercel App](https://reach-out-lovat.vercel.app/)
+- [Demo Video](https://drive.google.com/file/d/1yMv7rI-sCSP8CS11miwKE-qRBVdIjIfr/view?usp=sharing)
 
 ## Screenshots :camera_flash:
 
