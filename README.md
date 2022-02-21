@@ -8,7 +8,7 @@
 
 <div align="center">
    <strong>ReachOut</strong> - Job Seeking App for the Differently Abled <br>
-  Techno Hack || Team NeoStar <br> <br>
+  Techno Hack Finalists || Team NeoStar <br> <br>
   <img src="https://img.shields.io/github/forks/saRvaGnyA/ReachOut?style=for-the-badge">
   <img src="https://img.shields.io/github/stars/saRvaGnyA/ReachOut?style=for-the-badge">
 </div>
