@@ -73,9 +73,10 @@ It helps connec companies with the workforce while promopting a positive environ
 
 ## Team Members :nerd_face:
 - [@Sarvagnya Purohit](https://github.com/saRvaGnyA)
-- [@Pratiksha Sankhe](https://github.com/psankhe28)
 - [@Jash Shah](https://github.com/Jash-Shah)
-- [@Alisha Kamat](https://github.com/alisha-kamat)
+- [@Toshan Luktuke]()
+- [@Archita Sehgal]()
+- [@Pratiksha Sankhe]()
 
 ## Resources 🔨
 
