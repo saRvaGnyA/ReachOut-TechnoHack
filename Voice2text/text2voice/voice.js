@@ -9,6 +9,9 @@ window.speechSynthesis.onvoiceschanged = () => {
   voices.forEach((voice, i) => (voiceSelect.options[i] = new Option(voice.name, i)));
 };
 
+document.querySelector("#voices").addEventListener("change", () => {
+  speech.voice = voices[document.querySelector("#voices").value];
+});
 
 
 document.querySelector("#start").addEventListener("click", () => {
